@@ -11,6 +11,7 @@ body {
   background-image: url("../assets/shaafi-ali-4Se_LbEl5SY-unsplash.jpg"); /* Picture: https://unsplash.com/photos/4Se_LbEl5SY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink */
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 
 }
 
@@ -29,6 +30,12 @@ padding-right: 25%;
 
 .apod {
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+  border-radius: 2%;
 }
 
 .apod h1 {
@@ -45,11 +52,6 @@ padding-right: 25%;
   line-height: 2;
   margin-left: 10%;
   margin-right: 10%;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(40px);
-  border: solid 2px transparent;
-  background-clip: padding-box;
-  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
 }
 
 .apod .info {
@@ -62,8 +64,11 @@ padding-right: 25%;
 .apod h2 {
   margin-top: 60px;
 }
-
+.apod img {
+  border-radius: 2%;
+}
 footer {
+  border-radius: 2%;
   padding: 20px;
   margin-top: 20px;
   position: relative;
