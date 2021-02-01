@@ -1,9 +1,8 @@
 # NASA API Website
 <img src="https://images.unsplash.com/photo-1447433819943-74a20887a81e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2292&q=80" alt="Picture of a Nebula" height="250px"/>
-A simple website that pulls data from NASA's various APIs to display information.
 
 ## Implementation
-A website hosted on GitHub pages to show various data data APIs provided by NASA.
+A website hosted on GitHub pages to show various data provided by NASA's various publicly available APIs.
 
 ## Steps Involved
 * Generate an API key for NASA's API program
