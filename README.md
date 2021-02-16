@@ -14,6 +14,7 @@ A website hosted on GitHub pages to show various data provided by NASA's various
 * Add Mars Weather
 * Add photos taken from the Curiosity Rover
 * Possibly rework site layout
+* Update JavaScript to display videos properly
 
 Link to live demo: https://jlthompson96.github.io/NASA-API-Website/index.html
 
