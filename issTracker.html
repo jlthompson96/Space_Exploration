@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Explore the vast and awe-inspiring beauty of space exploration">
+    <link rel="shortcut icon" type="image/jpg" href="assets/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="css/issTacker.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="home.html">APOD</a></li>
+            <li><a href="issTracker.html">ISS Tracker</a></li>
+            <li><a href="#">Coming Soon</a></li>
+            <li><a href="#">Coming Soon</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="issInfo">
+            <h1>ISS Tracker</h1>
+            <div id="mapid"></div>
+            <p>Latitude: <span id="lat"></span>&deg;</p>
+            <p>Longitude: <span id="lng"></span>&deg;</p>
+            <p>Velocity: <span id="velocity"></span> mph</p>
+            <p>Altitude: <span id="altitude"></span> miles</p>
+        </div>
+        <div class="peopleInSpace">
+            <h1>Astronauts in Space</h1>
+            <h2 id="spacepeeps"></h2>
+            <div id="astronames"></div>
+        </div>
+    </div>
+    <footer>
+        <p>Data provided by the <a href="https://wheretheiss.at/">wheretheiss.at &amp; <a href="http://open-notify.org/">OpenNotify</a></p>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/issTracker.js"></script>
+
+</html>
