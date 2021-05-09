@@ -1,6 +1,6 @@
 
 //Get Who is in Space
-$.getJSON('http://api.open-notify.org/astros.json?callback=?', function(data) {
+$.getJSON('https://api.open-notify.org/astros.json?callback=?', function(data) {
     var number = data['number'];
     $('#spacepeeps').html("There are currently " + number + " people in space");
 
