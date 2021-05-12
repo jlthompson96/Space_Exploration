@@ -4,7 +4,7 @@
 const mymap = L.map('mapid').setView([51.505, -0.09], 13);
 const tileURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const icon = L.icon({
-  iconUrl: "../assets/iss.svg",
+  iconUrl: "https://raw.githubusercontent.com/jlthompson96/NASA-API-Website/06c5ec7d068a51683574d54959441ff8ff75abba/assets/iss.svg",
   iconSize:[175,175]
 });
 const issMarker = L.marker([0,0],{icon:icon}).addTo(mymap);
