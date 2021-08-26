@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta http-equiv="refresh" content="14;url=home.html">
-    <meta
-      name="description"
-      content="Explore the vast and awe-inspiring beauty of space exploration"
-    />
-    <link
-      rel="shortcut icon"
-      type="image/jpg"
-      href="assets/favicon_io/favicon.ico"
-    />
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="20;url=home.html">
+    <meta name="description" content="Explore the vast and awe-inspiring beauty of space exploration" />
+    <link rel="shortcut icon" type="image/jpg" href="assets/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="css/launch.css">
+    <title>Space Exploration</title>
+</head>
+
+<body>
     <div class="container">
-      <div class="quote">
-        <quote class="quoteText"
-          >“We choose to go to the moon in this decade and do the other things,
-          not because they are easy, but because they are hard, because that
-          goal will serve to organize and measure the best of our energies and
-          skills, because that challenge is one that we are willing to accept,
-          one we are unwilling to postpone, and one which we intend to
-          win.”</quote
-        >
-        <p class="JFK">- John F. Kennedy</p>
-      </div>
+        <div class="quote">
+            <quote class="quoteText">“We choose to go to the moon in this decade and do the other things,
+                not because they are easy, but because they are hard, because that
+                goal will serve to organize and measure the best of our energies and
+                skills, because that challenge is one that we are willing to accept,
+                one we are unwilling to postpone, and one which we intend to
+                win.”</quote>
+            <p class="JFK">- John F. Kennedy</p>
+            <section class="countdown">
+                <h2>Get Ready for Blastoff!</h2>
+                <p id="rocket">&#128640;</p>
+                <p id="timer">20</p>
+            </section>
+
+        </div>
     </div>
-  </body>
+</body>
+<script>
+    const countdown = document.getElementById('timer');
+    let count = 19;
+    setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+        if (count >= 0) {
+            timer.innerHTML = count;
+            count--;
+        } else {
+            count.innerHTML = 0;
+        }
+    }
+</script>
+
 </html>
