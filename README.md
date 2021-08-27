@@ -7,7 +7,7 @@ A website hosted on GitHub pages to show various data provided by NASA's various
 ## Steps Involved
 * Generate an API key for NASA's API program
 * Learn an implement Front End Development (HTML5, CSS3, JavaScript)
-* Use jQuery's Ajax functionality to parse JSON requests from API
+* Use JavaScript to parse JSON requests from API
 
 ## Future Plans
 * Add more data to the site
