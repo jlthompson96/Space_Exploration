@@ -16,6 +16,7 @@ async function getApodInfo() {
     if (media_type == "image") {
         var img = new Image();
         img.src = hdurl;
+        img.style.width = "100%";
         document.getElementById("image").appendChild(img);
     } else {
         let url = url
