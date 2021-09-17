@@ -8,6 +8,7 @@ async function getApodInfo() {
         media_type,
         explanation,
         date,
+        url,
         copyright,
         title,
         hdurl
@@ -19,7 +20,6 @@ async function getApodInfo() {
         img.style.width = "100%";
         document.getElementById("image").appendChild(img);
     } else {
-        let url = url
         document.getElementById("video").innerHTML += '<iframe src=' + url + '></iframe>';
     }
     document.getElementById("description").innerHTML = explanation;
