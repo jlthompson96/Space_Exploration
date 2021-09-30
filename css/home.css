@@ -15,11 +15,16 @@ body {
 
 #pageTitle {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #data {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+#description {
+  line-height: 2em;
 }
 
 iframe {
