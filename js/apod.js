@@ -26,5 +26,4 @@ async function getApodInfo() {
     document.getElementById("date").innerHTML = date;
     document.getElementById("copyright").innerHTML = copyright;
 }
-
 getApodInfo();
