@@ -18,7 +18,7 @@ async function getApodInfo() {
         var img = new Image();
         img.src = hdurl;
         img.style.width = "100%";
-        document.getElementById("image").appendChild(img);
+        document.getElementById("images").appendChild(img);
     } else {
         document.getElementById("video").innerHTML += '<iframe src=' + url + '></iframe>';
     }
