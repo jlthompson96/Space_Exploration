@@ -15,7 +15,7 @@ A website hosted on GitHub pages to show various data provided by NASA's various
 * Add photos taken from the Curiosity Rover
 * Possibly rework site layout
 
-Link to live demo: https://jlthompson96.github.io/NASA-API-Website/index.html
+Link to live demo: https://jlthompson96.github.io/Space_Exploration/
 
 <!--
 Photo provided by NASA on Unsplash https://unsplash.com/photos/vltMzn0jqsA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLin
