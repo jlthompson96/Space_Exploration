@@ -14,6 +14,7 @@ A website hosted on GitHub pages to show various data provided by NASA's various
 * Add Mars Weather
 * Add photos taken from the Curiosity Rover
 * Possibly rework site layout
+* Enhance with a frontend framework i.e. React/Angular/Vue
 
 Link to live demo: https://jlthompson96.github.io/Space_Exploration/
 
