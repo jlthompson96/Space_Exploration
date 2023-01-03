@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import Apod from './components/apod/apod';
+import { NASA_API_URL } from './api';
 
 function App() {
+  const [apod, setApod] = useState(null);
+
+  const getApodData = async () => {
+    const response = await fetch(NASA_API_URL)
+    .then((response) => response.json())
+    setApod(response);
+  };
+
+  useEffect(() => {
+    getApodData()}, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {apod && <Apod data={apod} />}
     </div>
   );
-}
+};
 
 export default App;
