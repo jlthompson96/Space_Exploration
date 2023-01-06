@@ -1,15 +1,27 @@
+body {
+  background-image: url("../../assets/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff !important;
+}
 #pageTitle {
     padding-top: 50px;
     padding-bottom: 50px;
+    text-align: center;
   }
   
+  #title {
+    text-align: center;
+  }
+
   #data {
     padding-top: 50px;
     padding-bottom: 50px;
   }
   
   #description {
-    line-height: 2em;
+    line-height: 2.5em;
+    font-size: 14px;
   }
   
   #apodImage {
