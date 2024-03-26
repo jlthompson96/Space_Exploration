@@ -1,22 +1,30 @@
-# Space Exploration
-<img src="https://images.unsplash.com/photo-1447433819943-74a20887a81e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2292&q=80" alt="Picture of a Nebula" height="250px"/>
+# React + TypeScript + Vite
 
-## Implementation
-A website hosted on GitHub pages to show various data provided by NASA's various publicly available APIs.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Steps Involved
-* Generate an API key for NASA's API program
-* Learn an implement Front End Development (HTML5, CSS3, JavaScript)
-* Use JavaScript to parse JSON requests from API
+Currently, two official plugins are available:
 
-## Future Plans
-* Add more data to the site
-* Add Mars Weather
-* Add photos taken from the Curiosity Rover
-* Possibly rework site layout
-* Enhance with a frontend framework i.e. React/Angular/Vue
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Link to live demo: https://jlthompson96.github.io/Space_Exploration/
+## Expanding the ESLint configuration
 
-<!--
-Photo provided by NASA on Unsplash https://unsplash.com/photos/vltMzn0jqsA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLin
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
+
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
