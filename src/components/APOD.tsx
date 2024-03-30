@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Container, Paper, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import './APOD.css';
@@ -36,7 +37,8 @@ const NasaApod = () => {
     useEffect(() => {
         const fetchApod = async () => {
             try {
-                const response = await fetch('https://api.nasa.gov/planetary/apod?api_key={{NASA_API_KEY}}');
+                const NASA_API_KEY = 'YOUR_API_KEY'; // Replace 'YOUR_API_KEY' with your actual NASA API key
+                const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch APOD');
                 }
