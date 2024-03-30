@@ -54,4 +54,45 @@ body {
     }
 }
 
+.spaceship-error {
+    background-color: #2a2a2a;
+    /* Dark gray background */
+    color: #ff4d4d;
+    /* Red color for the error text */
+    border: 2px solid #ff4d4d;
+    /* Red border */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 10px 20px;
+    /* Padding for the error message */
+
+    /* Font family */
+    font-size: 16px;
+    /* Font size */
+    text-align: center;
+    /* Center align text */
+    max-width: 300px;
+    /* Max width for better readability */
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+.spaceship-error::before {
+    content: '';
+    /* Empty content for pseudo-element */
+    background-image: url('error-icon.png');
+    /* URL to your error icon image */
+    background-size: cover;
+    /* Ensure the icon covers the pseudo-element */
+    width: 40px;
+    /* Icon width */
+    height: 40px;
+    /* Icon height */
+    display: block;
+    /* Make the icon a block element */
+    margin: 0 auto 10px;
+    /* Margin below the icon */
+}
+
+
 /* Add more stars as needed */
