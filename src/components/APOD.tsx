@@ -38,6 +38,7 @@ const NasaApod = () => {
         const fetchApod = async () => {
             try {
                 const NASA_API_KEY = process.env.NASA_API_KEY;
+                console.log("ENV Config: " + process.env);
                 console.log("API KEY: " + NASA_API_KEY);
                 const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`);
                 if (!response.ok) {
