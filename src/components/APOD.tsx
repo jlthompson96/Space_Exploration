@@ -59,7 +59,7 @@ const NasaApod = () => {
     }
 
     if (!apodData) {
-        return <div>Error fetching APOD</div>;
+        return <div className='spaceship-error'>Error fetching APOD</div>;
     }
 
     return (
