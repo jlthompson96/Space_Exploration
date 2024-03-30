@@ -37,7 +37,7 @@ const NasaApod = () => {
     useEffect(() => {
         const fetchApod = async () => {
             try {
-                const NASA_API_KEY = process.env.NASA_API_KEY;
+                const NASA_API_KEY = process.env.VERCEL_NASA_API_KEY;
                 const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch APOD');
