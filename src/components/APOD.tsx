@@ -1,5 +1,5 @@
 import { Container, Paper, Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './APOD.css';
 
 const NasaApod = () => {
@@ -36,7 +36,7 @@ const NasaApod = () => {
     useEffect(() => {
         const fetchApod = async () => {
             try {
-                const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=S0XScvoSgX8RFYGtC7WIAJQtsRJjZeDjznVW2wUI');
+                const response = await fetch('https://api.nasa.gov/planetary/apod?api_key={{NASA_API_KEY}}');
                 if (!response.ok) {
                     throw new Error('Failed to fetch APOD');
                 }
