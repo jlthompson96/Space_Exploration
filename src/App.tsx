@@ -1,16 +1,35 @@
-import './App.css'
-import { Container } from '@mui/material'
-import APOD from './components/APOD'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import NasaApod from './components/APOD';
+import MarsPhotos from './components/MarsPhotos';
 
-function App() {
 
-  return (
-    <>
-      <Container className="stars">
-        <APOD />
-      </Container>
-    </>
-  )
-}
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1e88e5',
+    },
+    secondary: {
+      main: '#ff4081',
+    },
+    background: {
+      default: '#0d47a1',
+      paper: '#1a237e',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#bbdefb',
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto, Open Sans, sans-serif',
+  },
+});
 
-export default App
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <NasaApod />
+    <MarsPhotos />
+  </ThemeProvider>
+);
+
+export default App;

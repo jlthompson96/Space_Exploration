@@ -1,82 +1,58 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { Container, Paper, Typography } from '@mui/material';
-import { useState, useEffect } from 'react';
-import './APOD.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Container, Card, CardContent, Typography, CardMedia, CircularProgress } from '@mui/material';
 
-const NasaApod = () => {
-    const [apodData, setApodData] = useState(null);
+const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY;
+const APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`;
+
+function NasaAPOD() {
+    const [apodData, setApodData] = useState<{ title: string; date: string; url: string; explanation: string } | null>(null);
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        generateStars(); // Call the function to generate stars when the component mounts
-    }, []);
-
-    const generateStars = () => {
-        const numStars = 50; // Adjust this number based on the density of stars you desire
-        const starsContainer = document.querySelector('.stars');
-
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            if (starsContainer) {
-                starsContainer.appendChild(star);
-            }
-            positionStar(star);
-        }
-    };
-
-    const positionStar = (star: HTMLDivElement) => {
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        const size = Math.random() * 2 + 1; // Adjust the range of star sizes here
-
-        star.style.left = `${x}px`;
-        star.style.top = `${y}px`;
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-    };
-    useEffect(() => {
-        const fetchApod = async () => {
-            try {
-                const NASA_API_KEY = process.env.NASA_API_KEY;
-                console.log("ENV Config: " + process.env);
-                console.log("API KEY: " + NASA_API_KEY);
-                const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch APOD');
-                }
-                const data = await response.json();
-                setApodData(data);
+        axios.get(APOD_URL)
+            .then(response => {
+                setApodData(response.data);
                 setLoading(false);
-            } catch (error) {
-                console.error('Error fetching APOD:', error);
+            })
+            .catch(error => {
+                console.error("Error fetching the data", error);
                 setLoading(false);
-            }
-        };
-
-        fetchApod();
+            });
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (!apodData) {
-        return <div className='spaceship-error'>Error fetching APOD</div>;
+        return <CircularProgress />;
     }
 
     return (
-        <div className='stars'>
-            <Container>
-                <Paper elevation={3} sx={{ padding: '40px', marginTop: '100px', backgroundColor: '#292929', color: ' #FFFFFF' }}>
-                    <Typography variant='h3'>{(apodData as { title: string }).title}</Typography>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', columnGap: '5%' }}>
-                        <img style={{ height: '50%', width: '50%' }} src={(apodData as { url: string }).url} alt={(apodData as { title: string }).title} />
-                        <Typography variant='body1'>{(apodData as { explanation: string }).explanation}</Typography>
-                    </div>
-                </Paper>
-            </Container>
-        </div>
+        <Container maxWidth="md">
+            {apodData && (
+                <Card>
+                    <CardMedia
+                        component="img"
+                        alt={apodData.title}
+                        height="500px"
+                        image={apodData.url}
+                        title={apodData.title}
+                        style={{ objectFit: 'contain' }}
+                    />
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            {apodData.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {apodData.date}
+                        </Typography>
+                        <Typography variant="body1" component="p">
+                            {apodData.explanation}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            )}
+        </Container>
     );
-};
+}
 
-export default NasaApod;
+export default NasaAPOD;
+
