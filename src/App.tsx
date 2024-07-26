@@ -1,34 +1,28 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import NasaApod from './components/APOD';
-import MarsPhotos from './components/MarsPhotos';
+import Header from './components/Header';
+import './index.css'; // Ensure this line is present to import the CSS file
 
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#1e88e5',
+      main: '#8f9cec',
     },
     secondary: {
-      main: '#ff4081',
-    },
-    background: {
-      default: '#0d47a1',
-      paper: '#1a237e',
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#bbdefb',
+      main: '#651fff',
     },
   },
   typography: {
-    fontFamily: 'Roboto, Open Sans, sans-serif',
+    fontFamily: 'Montserrat, sans-serif',
   },
 });
 
 const App = () => (
   <ThemeProvider theme={theme}>
+    <Header />
     <NasaApod />
-    <MarsPhotos />
   </ThemeProvider>
 );
 

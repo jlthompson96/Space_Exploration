@@ -1,4 +1,12 @@
+/** @jsxImportSource @emotion/react */
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { css } from '@emotion/react';
+
+const buttonStyle = css`
+    &:hover {
+        color: #9d70ff;
+    }
+`;
 
 const Header = () => {
     return (
@@ -7,10 +15,11 @@ const Header = () => {
                 <Typography variant="h6" style={{ flexGrow: 1 }}>
                     Space Explorer
                 </Typography>
-                <Button color="inherit">Home</Button>
-                <Button color="inherit">Gallery</Button>
-                <Button color="inherit">Live Data</Button>
-                <Button color="inherit">About</Button>
+                <Button css={buttonStyle} color="inherit">Home</Button>
+                <Button css={buttonStyle} color="inherit">APOD</Button>
+                <Button css={buttonStyle} color="inherit">Mars Rover Photos</Button>
+                <Button css={buttonStyle} color="inherit">Satellite Tracker</Button>
+                <Button css={buttonStyle} color="inherit">About</Button>
             </Toolbar>
         </AppBar>
     );

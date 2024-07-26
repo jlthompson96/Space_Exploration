@@ -7,7 +7,6 @@ const MARS_ROVER_PHOTOS_URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/cu
 
 
 function MarsPhotos() {
-    // Step 1: Define an interface for the photo objects
     interface Photo {
         id: string;
         img_src: string;
@@ -17,11 +16,8 @@ function MarsPhotos() {
         };
     }
 
-    // Assuming `photos` is a state or prop, ensure it's typed correctly
-    // For example, if using useState in a React component:
     const [photos, setPhotos] = useState<Photo[]>([]);
 
-    // Ensure that wherever you're setting `photos`, the data conforms to this structure
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

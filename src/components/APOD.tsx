@@ -26,7 +26,7 @@ function NasaAPOD() {
     }
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" style={{ paddingTop: '50px' }}>
             {apodData && (
                 <Card>
                     <CardMedia
@@ -35,7 +35,7 @@ function NasaAPOD() {
                         height="500px"
                         image={apodData.url}
                         title={apodData.title}
-                        style={{ objectFit: 'contain' }}
+                        style={{ objectFit: 'contain', paddingTop: '50px', paddingBottom: '50px' }}
                     />
                     <CardContent>
                         <Typography variant="h5" component="div">
