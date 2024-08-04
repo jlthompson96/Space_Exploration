@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Grid, Card, CardMedia, CardContent, Typography, CircularProgress, Container } from '@mui/material';
 
 const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY;
-const MARS_ROVER_PHOTOS_URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=50&api_key=${NASA_API_KEY}`;
+const MARS_ROVER_PHOTOS_URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=51&api_key=${NASA_API_KEY}`;
 
 
 function MarsPhotos() {
