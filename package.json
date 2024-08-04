@@ -14,12 +14,16 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.16.5",
     "@mui/material": "^5.15.14",
-    "axios": "^1.7.2",
+    "axios": "^1.7.3",
+    "he": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-player": "^2.16.0",
+    "react-router-dom": "^6.26.0",
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
+    "@types/he": "^1.2.3",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",

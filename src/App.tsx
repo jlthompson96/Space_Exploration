@@ -1,7 +1,7 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import NasaApod from './components/APOD';
 import Header from './components/Header';
-import './index.css'; // Ensure this line is present to import the CSS file
+import './index.css';
+import MainHome from './components/Home';
 
 
 const theme = createTheme({
@@ -22,7 +22,7 @@ const theme = createTheme({
 const App = () => (
   <ThemeProvider theme={theme}>
     <Header />
-    <NasaApod />
+    <MainHome />
   </ThemeProvider>
 );
 

@@ -19,6 +19,7 @@ const Header = () => {
                 <Button css={buttonStyle} color="inherit">APOD</Button>
                 <Button css={buttonStyle} color="inherit">Mars Rover Photos</Button>
                 <Button css={buttonStyle} color="inherit">Satellite Tracker</Button>
+                <Button css={buttonStyle} color="inherit">NASA News</Button>
                 <Button css={buttonStyle} color="inherit">About</Button>
             </Toolbar>
         </AppBar>
