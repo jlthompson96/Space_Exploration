@@ -43,6 +43,9 @@ const NASANews: React.FC = () => {
 
     return (
         <Container>
+            <Typography variant='h3' align='center' padding='50px' color='primary'>
+                News at NASA
+            </Typography>
             {news.map((item, index) => (
                 <Card key={index} sx={{ margin: '25px' }}>
                     <CardContent>

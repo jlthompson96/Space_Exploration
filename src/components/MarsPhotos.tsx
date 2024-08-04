@@ -38,6 +38,9 @@ function MarsPhotos() {
 
     return (
         <Container>
+            <Typography variant='h3' align='center' padding='50px' color='primary'>
+                Mars Rover Photos
+            </Typography>
             <Grid container spacing={3}>
                 {photos.map(photo => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={photo.id}>

@@ -31,41 +31,42 @@ function NasaAPOD() {
     }
 
     return (
-        <Container maxWidth="md" style={{ paddingTop: '50px', marginTop: '50px', marginBottom: '50px' }}>
-            {apodData && (
-                <Card sx={{ paddingRight: '25px', paddingLeft: '25px' }}>
-                    {isYouTubeLink(apodData.url) ? (
-                        <ReactPlayer
-                            url={apodData.url}
-                            controls
-                            width="100%"
-                            height="500px"
-                            style={{ paddingTop: '50px', paddingBottom: '50px' }}
-                        />
-                    ) : (
-                        <CardMedia
-                            component="img"
-                            alt={apodData.title}
-                            height="500px"
-                            image={apodData.url}
-                            title={apodData.title}
-                            style={{ objectFit: 'contain', paddingTop: '50px', paddingBottom: '50px' }}
-                        />
-                    )}
-                    <CardContent>
-                        <Typography variant="h5" component="div" sx={{ padding: '10px' }}>
-                            {apodData.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary" sx={{ padding: '10px' }}>
-                            {apodData.date}
-                        </Typography>
-                        <Typography variant="body1" component="p" sx={{ padding: '10px', lineHeight: '1.75' }}>
-                            {apodData.explanation}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            )}
-        </Container>
+        <><Typography variant='h3' align='center' padding='50px' color='primary'>
+            Astronomy Picture of the Day (APOD)
+        </Typography>
+            <Container maxWidth="md" style={{ marginTop: '50px', marginBottom: '50px' }}>
+                {apodData && (
+                    <Card sx={{ paddingRight: '25px', paddingLeft: '25px' }}>
+                        {isYouTubeLink(apodData.url) ? (
+                            <ReactPlayer
+                                url={apodData.url}
+                                controls
+                                width="100%"
+                                height="500px"
+                                style={{ paddingTop: '50px', paddingBottom: '50px' }} />
+                        ) : (
+                            <CardMedia
+                                component="img"
+                                alt={apodData.title}
+                                height="500px"
+                                image={apodData.url}
+                                title={apodData.title}
+                                style={{ objectFit: 'contain', paddingTop: '50px', paddingBottom: '50px' }} />
+                        )}
+                        <CardContent>
+                            <Typography variant="h5" component="div" sx={{ padding: '10px' }}>
+                                {apodData.title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary" sx={{ padding: '10px' }}>
+                                {apodData.date}
+                            </Typography>
+                            <Typography variant="body1" component="p" sx={{ padding: '10px', lineHeight: '1.75' }}>
+                                {apodData.explanation}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                )}
+            </Container></>
     );
 }
 

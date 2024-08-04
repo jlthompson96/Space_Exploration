@@ -1,7 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './components/Header';
 import './index.css';
-import MainHome from './components/Home';
 
 
 const theme = createTheme({
@@ -22,7 +21,6 @@ const theme = createTheme({
 const App = () => (
   <ThemeProvider theme={theme}>
     <Header />
-    <MainHome />
   </ThemeProvider>
 );
 
