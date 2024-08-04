@@ -23,10 +23,10 @@ const NASANews: React.FC = () => {
                 const xml = parser.parseFromString(response.data, 'application/xml');
                 const items = xml.querySelectorAll('item');
                 const newsData: NewsItem[] = Array.from(items).map(item => ({
-                    title: he.decode(item.querySelector('title')?.textContent || ''),
-                    date: he.decode(item.querySelector('pubDate')?.textContent || ''),
-                    description: he.decode(item.querySelector('description')?.textContent || ''),
-                    link: he.decode(item.querySelector('link')?.textContent || ''),
+                    title: he.decode(item.querySelector('title')?.textContent ?? ''),
+                    date: he.decode(item.querySelector('pubDate')?.textContent ?? ''),
+                    description: he.decode(item.querySelector('description')?.textContent ?? ''),
+                    link: he.decode(item.querySelector('link')?.textContent ?? ''),
                 }));
                 setNews(newsData);
                 setLoading(false);

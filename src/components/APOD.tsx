@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CircularProgress, Container, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import ReactPlayer from 'react-player';
