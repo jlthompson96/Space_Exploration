@@ -1,13 +1,15 @@
 import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import logo from '../assets/favicon_io/favicon-32x32.png';
+import logo from '../assets/favicon_io/android-chrome-512x512.png';
+import NasaAPOD from "./APOD";
+import MarsPhotos from "./MarsPhotos";
+import NASANews from "./NASANews";
 
 const CommonAppBar = () => {
     const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
@@ -19,20 +21,9 @@ const CommonAppBar = () => {
         { link: "/nasaNews", text: "NASA News" }
     ];
 
-    const linkStyle = {
-        color: 'white',
-        textDecoration: 'none',
-        padding: '10px',
-        transition: 'color 0.3s',
-    };
-
-    const linkHoverStyle = {
-        color: '#9d70ff',
-    };
-
     return (
         <AppBar position="static">
-            <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Toolbar>
                 <img src={logo} alt="BullRun Logo" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
                 {isMobile ? (
                     <>
@@ -50,26 +41,26 @@ const CommonAppBar = () => {
                         </Drawer>
                     </>
                 ) : (
-                    <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                        {menuItems.map((item, index) => (
-                            <MenuItem key={index}>
-                                <Typography variant="h6">
-                                    <Link
-                                        to={item.link}
-                                        style={hoveredIndex === index ? { ...linkStyle, ...linkHoverStyle } : linkStyle}
-                                        onMouseEnter={() => setHoveredIndex(index)}
-                                        onMouseLeave={() => setHoveredIndex(null)}
-                                    >
-                                        {item.text}
-                                    </Link>
-                                </Typography>
-                            </MenuItem>
-                        ))}
-                    </div>
+                    menuItems.map((item, index) => (
+                        <MenuItem key={index}><Typography variant="h6"><Link to={item.link} style={{ color: 'white', textDecoration: 'none', padding: '10px' }}>{item.text}</Link></Typography></MenuItem>
+                    ))
                 )}
             </Toolbar>
         </AppBar>
     );
 };
 
-export default CommonAppBar;
+const App = () => {
+    return (
+        <Router>
+            <CommonAppBar />
+            <Routes>
+                <Route path="/apod" element={<NasaAPOD />} />
+                <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
+                <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
