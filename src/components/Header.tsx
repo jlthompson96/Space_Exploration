@@ -1,11 +1,15 @@
 import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme } from "@mui/material";
 import { Link, Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import logo from '../assets/favicon_io/android-chrome-512x512.png';
-import NasaAPOD from "./APOD";
-import MarsPhotos from "./MarsPhotos";
-import NASANews from "./NASANews";
+
+// ⚡ Bolt: Lazy load components to enable code splitting.
+// This reduces the initial bundle size, allowing the app to load faster.
+// Components are only downloaded when the user navigates to their specific route.
+const NasaAPOD = lazy(() => import("./APOD"));
+const MarsPhotos = lazy(() => import("./MarsPhotos"));
+const NASANews = lazy(() => import("./NASANews"));
 
 const CommonAppBar = () => {
     const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
@@ -54,11 +58,13 @@ const App = () => {
     return (
         <Router>
             <CommonAppBar />
-            <Routes>
-                <Route path="/apod" element={<NasaAPOD />} />
-                <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
-                <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
-            </Routes>
+            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem' }}>Loading...</div>}>
+                <Routes>
+                    <Route path="/apod" element={<NasaAPOD />} />
+                    <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
+                    <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
+                </Routes>
+            </Suspense>
         </Router>
     );
 };
