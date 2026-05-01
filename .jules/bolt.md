@@ -1,0 +1,3 @@
+## 2024-05-15 - React Router Top-Level Code Splitting
+**Learning:** In React applications with multiple top-level routes, importing route components synchronously can significantly increase the initial bundle size, leading to slower page load times. This is especially true when route components pull in heavy dependencies (like `rss-parser`, `react-player` or `axios` in this application).
+**Action:** Always use `React.lazy()` and `Suspense` for top-level React Router components to enable code splitting. This ensures that the code for a specific route is only downloaded when the user actually navigates to it, keeping the initial bundle lean and fast.

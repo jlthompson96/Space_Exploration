@@ -1,11 +1,15 @@
-import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme } from "@mui/material";
+import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme, CircularProgress, Box } from "@mui/material";
 import { Link, Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import logo from '../assets/favicon_io/android-chrome-512x512.png';
-import NasaAPOD from "./APOD";
-import MarsPhotos from "./MarsPhotos";
-import NASANews from "./NASANews";
+
+// ⚡ Bolt: Use React.lazy() to code-split top-level routes.
+// This reduces the initial bundle size and improves load time by only downloading
+// component code when the route is actually visited.
+const NasaAPOD = lazy(() => import("./APOD"));
+const MarsPhotos = lazy(() => import("./MarsPhotos"));
+const NASANews = lazy(() => import("./NASANews"));
 
 const CommonAppBar = () => {
     const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
@@ -54,11 +58,18 @@ const App = () => {
     return (
         <Router>
             <CommonAppBar />
-            <Routes>
-                <Route path="/apod" element={<NasaAPOD />} />
-                <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
-                <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
-            </Routes>
+            {/* ⚡ Bolt: Wrap Routes in Suspense to provide a fallback UI while code-split chunks are downloading */}
+            <Suspense fallback={
+                <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+                    <CircularProgress />
+                </Box>
+            }>
+                <Routes>
+                    <Route path="/apod" element={<NasaAPOD />} />
+                    <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
+                    <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
+                </Routes>
+            </Suspense>
         </Router>
     );
 };
