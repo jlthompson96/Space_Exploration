@@ -1,11 +1,17 @@
 import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme } from "@mui/material";
 import { Link, Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import logo from '../assets/favicon_io/android-chrome-512x512.png';
-import NasaAPOD from "./APOD";
-import MarsPhotos from "./MarsPhotos";
-import NASANews from "./NASANews";
+
+// ⚡ Bolt Performance Optimization:
+// Using React.lazy for route components to implement code splitting.
+// This reduces the initial JavaScript bundle size, leading to faster initial page loads
+// by only downloading component code when the user navigates to their specific routes.
+// Expected Impact: Initial chunk size reduction by isolating component code into separate chunks.
+const NasaAPOD = lazy(() => import("./APOD"));
+const MarsPhotos = lazy(() => import("./MarsPhotos"));
+const NASANews = lazy(() => import("./NASANews"));
 
 const CommonAppBar = () => {
     const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
@@ -54,11 +60,13 @@ const App = () => {
     return (
         <Router>
             <CommonAppBar />
-            <Routes>
-                <Route path="/apod" element={<NasaAPOD />} />
-                <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
-                <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
-            </Routes>
+            <Suspense fallback={<div style={{ padding: '20px', textAlign: 'center', color: 'white' }}>Loading...</div>}>
+                <Routes>
+                    <Route path="/apod" element={<NasaAPOD />} />
+                    <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
+                    <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
+                </Routes>
+            </Suspense>
         </Router>
     );
 };
