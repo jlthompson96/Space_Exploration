@@ -1,0 +1,3 @@
+## 2024-05-04 - Initial Bundle Size Optimization
+**Learning:** Code splitting with React.lazy and Suspense significantly reduces the initial main bundle size (index.js). The main bundle was large (452.78 kB) initially, which indicates high initial loading time.
+**Action:** By applying code splitting to the top-level route components (`NasaAPOD`, `MarsPhotos`, `NASANews`), the initial main bundle size has been reduced from 452.78 kB to 296.93 kB, offloading logic into separate chunks loaded only when a route is visited. Always consider code splitting for large route components early in a React application to maintain low initial payload sizes.
