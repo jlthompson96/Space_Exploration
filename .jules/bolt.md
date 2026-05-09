@@ -1,0 +1,3 @@
+## 2026-05-09 - Code Splitting Top-Level Route Components
+**Learning:** In a React application utilizing React Router, top-level route components that load significant amounts of data and dependencies (like Axios and large child components) are ideal candidates for code-splitting via React.lazy and Suspense. This minimizes the initial JS bundle size and improves Time To Interactive (TTI).
+**Action:** Always check if an app has route-level component loading without code splitting and apply React.lazy to split these routes into separate JavaScript chunks. Use a meaningful Suspense fallback like a MUI CircularProgress.
