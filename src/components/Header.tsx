@@ -1,11 +1,20 @@
-import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme } from "@mui/material";
+import { AppBar, MenuItem, Toolbar, Typography, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Theme, CircularProgress, Box } from "@mui/material";
 import { Link, Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import logo from '../assets/favicon_io/android-chrome-512x512.png';
-import NasaAPOD from "./APOD";
-import MarsPhotos from "./MarsPhotos";
-import NASANews from "./NASANews";
+
+// ⚡ Bolt: Implement code splitting to reduce initial bundle size
+const NasaAPOD = React.lazy(() => import("./APOD"));
+const MarsPhotos = React.lazy(() => import("./MarsPhotos"));
+const NASANews = React.lazy(() => import("./NASANews"));
+
+// ⚡ Bolt: Move static data outside component to prevent recreation on every render
+const menuItems = [
+    { link: "/apod", text: "APOD" },
+    { link: "/marsRoverPhotos", text: "Mars Rover Photos" },
+    { link: "/nasaNews", text: "NASA News" }
+];
 
 const CommonAppBar = () => {
     const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
@@ -14,12 +23,6 @@ const CommonAppBar = () => {
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
     };
-
-    const menuItems = [
-        { link: "/apod", text: "APOD" },
-        { link: "/marsRoverPhotos", text: "Mars Rover Photos" },
-        { link: "/nasaNews", text: "NASA News" }
-    ];
 
     return (
         <AppBar position="static">
@@ -54,11 +57,18 @@ const App = () => {
     return (
         <Router>
             <CommonAppBar />
-            <Routes>
-                <Route path="/apod" element={<NasaAPOD />} />
-                <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
-                <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
-            </Routes>
+            {/* ⚡ Bolt: Wrap Routes with Suspense to handle dynamic imports */}
+            <Suspense fallback={
+                <Box display="flex" justifyContent="center" alignItems="center" minHeight="50vh">
+                    <CircularProgress />
+                </Box>
+            }>
+                <Routes>
+                    <Route path="/apod" element={<NasaAPOD />} />
+                    <Route path="/marsRoverPhotos" element={<MarsPhotos />} />
+                    <Route path="/nasaNews" element={<NASANews />} /> {/* Add the new route */}
+                </Routes>
+            </Suspense>
         </Router>
     );
 };
