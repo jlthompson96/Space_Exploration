@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 160" width="1000" height="160" role="img" aria-label="Space Exploration pages: Astronomy Picture of the Day, Mars Rover Photos and NASA News">
+  <style>
+    .bar { animation: glow 2.6s ease-in-out infinite; }
+    @keyframes glow { 0%,100% { opacity: 1 } 50% { opacity: .45 } }
+    .card { animation: lift 6s ease-in-out infinite; }
+    @keyframes lift { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-3px) } }
+    @media (prefers-reduced-motion: reduce) { .bar, .card { animation: none } }
+  </style>
+  <defs>
+    <radialGradient id="n0" cx="0.9" cy="0.1" r="0.8"><stop offset="0" stop-color="#8f9cec" stop-opacity="0.3"/><stop offset="1" stop-color="#8f9cec" stop-opacity="0"/></radialGradient>
+    <radialGradient id="n1" cx="0.9" cy="0.1" r="0.8"><stop offset="0" stop-color="#ff8a65" stop-opacity="0.3"/><stop offset="1" stop-color="#ff8a65" stop-opacity="0"/></radialGradient>
+    <radialGradient id="n2" cx="0.9" cy="0.1" r="0.8"><stop offset="0" stop-color="#b388ff" stop-opacity="0.3"/><stop offset="1" stop-color="#b388ff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <g class="card" style="animation-delay:-0.00s">
+    <rect x="10.0" y="10" width="317.3" height="140" rx="10" fill="#1e1e1e" stroke="#8f9cec" stroke-opacity="0.55"/>
+    <rect x="10.0" y="10" width="317.3" height="140" rx="10" fill="url(#n0)"/>
+    <g transform="translate(28.0,26)"><circle cx="18" cy="18" r="16" fill="none" stroke="#8f9cec" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 26l8-9 6 6 4-4 8 8" fill="none" stroke="#8f9cec" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="10" r="2.5" fill="#8f9cec"/></g>
+    <text x="28.0" y="88" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2" fill="#8f9cec">ASTRONOMY PICTURE OF THE DAY</text>
+    <text x="28.0" y="110" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#b0b3c6">Today's image or video with</text>
+    <text x="28.0" y="128" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#b0b3c6">NASA's explanation</text>
+    <rect class="bar" x="26.0" y="140" width="285.3" height="3" rx="1.5" fill="#8f9cec" style="animation-delay:-0.0s"/>
+  </g>
+  <g class="card" style="animation-delay:-0.45s">
+    <rect x="341.3" y="10" width="317.3" height="140" rx="10" fill="#1e1e1e" stroke="#ff8a65" stroke-opacity="0.55"/>
+    <rect x="341.3" y="10" width="317.3" height="140" rx="10" fill="url(#n1)"/>
+    <g transform="translate(359.3,26)"><rect x="4" y="10" width="26" height="12" rx="3" fill="none" stroke="#ff8a65" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="28" r="4" fill="none" stroke="#ff8a65" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="28" r="4" fill="none" stroke="#ff8a65" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="28" r="4" fill="none" stroke="#ff8a65" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 10V2h8" fill="none" stroke="#ff8a65" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="359.3" y="88" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2" fill="#ff8a65">MARS ROVER PHOTOS</text>
+    <text x="359.3" y="110" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#b0b3c6">A gallery from the Curiosity</text>
+    <text x="359.3" y="128" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#b0b3c6">rover, by camera and date</text>
+    <rect class="bar" x="357.3" y="140" width="285.3" height="3" rx="1.5" fill="#ff8a65" style="animation-delay:-0.4s"/>
+  </g>
+  <g class="card" style="animation-delay:-0.90s">
+    <rect x="672.7" y="10" width="317.3" height="140" rx="10" fill="#1e1e1e" stroke="#b388ff" stroke-opacity="0.55"/>
+    <rect x="672.7" y="10" width="317.3" height="140" rx="10" fill="url(#n2)"/>
+    <g transform="translate(690.7,26)"><path d="M4 4a28 28 0 0 1 28 28" fill="none" stroke="#b388ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 14a18 18 0 0 1 18 18" fill="none" stroke="#b388ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="30" r="3" fill="none" stroke="#b388ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <text x="690.7" y="88" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2" fill="#b388ff">NASA NEWS</text>
+    <text x="690.7" y="110" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#b0b3c6">The latest NASA news releases</text>
+    <text x="690.7" y="128" font-family="Montserrat, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#b0b3c6">straight from the RSS feed</text>
+    <rect class="bar" x="688.7" y="140" width="285.3" height="3" rx="1.5" fill="#b388ff" style="animation-delay:-0.8s"/>
+  </g>
+</svg>
